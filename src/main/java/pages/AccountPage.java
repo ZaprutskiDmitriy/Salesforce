@@ -3,6 +3,7 @@ package pages;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import wrappers.Input;
 
 public class AccountPage extends BasePage {
@@ -11,11 +12,12 @@ public class AccountPage extends BasePage {
         super(driver);
     }
 
-    public void createAccount(Account account) {
+    public AccountPage createAccount(Account account) {
         new Input(driver, "Account Name").write(account.getAccountName());
         new Input(driver, "Phone").write(account.getPhone());
         new Input(driver, "Website").write(account.getWebSite());
         new Input(driver, "Employees").write(account.getEmployees());
+        return this;
     }
 
     public AccountPage open() {
@@ -23,12 +25,19 @@ public class AccountPage extends BasePage {
         return this;
     }
 
-    public void clickNew(){
+    public AccountPage clickNew(){
         driver.findElement(By.cssSelector("[title=New]")).click();
+        return this;
     }
 
-    public void clickSave() {
-        driver.findElement(By.xpath("//span[contains(text(), 'Save')]")).click();
+    public AccountPage clickSave() {
+        driver.findElement(By.xpath("(//span[contains(text(), 'Save')])[3]")).click();
+        return this;
+    }
+
+    public AccountPage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[title=New]")));
+        return this;
     }
 
 }

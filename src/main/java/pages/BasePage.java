@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class BasePage {
     WebDriver driver;
     WebDriverWait wait;
-    String baseUrl = "https://tms5.lightning.force.com/";
+    String baseUrl = "https://d5g00000ehonneal.my.salesforce.com/";
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -14,6 +14,8 @@ public abstract class BasePage {
     }
 
     public abstract BasePage open();
+
+    public abstract BasePage isPageOpened();
 
     public void openMenu(String menu) {
 

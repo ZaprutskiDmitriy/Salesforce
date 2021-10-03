@@ -1,7 +1,5 @@
 package models;
 
-import com.github.javafaker.Faker;
-
 //POJO
 //PLAIN OLD JAVA OBJECT
 public class Account {
