@@ -26,4 +26,10 @@ public class HomePage extends BasePage {
         }
         return true;
     }
+
+    public HomePage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("oneHeader")));
+        return this;
+    }
+
 }

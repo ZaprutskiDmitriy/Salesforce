@@ -12,16 +12,17 @@ public class AccountTest extends BaseTest {
     public void createAccount() {
         boolean isOpened = loginPage
                 .open()
-                .login("dmitryrak11-sraq@force.com", "password01")
+                .isPageOpened()
+                .login("zaprutsciy-pfpp@force.com", "Qwerty123")
                 .isOpened();
         assertTrue(isOpened, "Home page wasn't opened");
 
-        accountPage.open();
-        accountPage.clickNew();
-
         Account account = AccountFactory.get();
-        accountPage.createAccount(account);
-        accountPage.clickSave();
-        //accountPage.validateAccount(account);
+        accountPage
+                .open()
+                .isPageOpened()
+                .clickNew()
+                .createAccount(account)
+                .clickSave();
     }
 }
