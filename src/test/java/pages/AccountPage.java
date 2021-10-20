@@ -15,7 +15,7 @@ public class AccountPage extends BasePage {
 
     @Step("create account '{account.accountName}'")
     public AccountPage createAccount(Account account) {
-        new Input(driver, "Account Name").write(account.getAccountName());
+        new Input(driver, "models.Account Name").write(account.getAccountName());
         new Input(driver, "Phone").write(account.getPhone());
         new Input(driver, "Website").write(account.getWebSite());
         new Input(driver, "Employees").write(account.getEmployees());
@@ -23,7 +23,7 @@ public class AccountPage extends BasePage {
     }
 
     public AccountPage open() {
-        driver.get(baseUrl + "lightning/o/Account/list?filterName=Recent");
+        driver.get(baseUrl + "lightning/o/models.Account/list?filterName=Recent");
         return this;
     }
 
